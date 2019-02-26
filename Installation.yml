@@ -1,7 +1,13 @@
+---
 - hosts: all
-    become: true
-
-    tasks:
+  become: true
+  
+  var:
+    - docker_group: docker
+    - remote_user: root
+    - ansible_user_id: ansible
+    
+  tasks:
     - name: gather ec2 facts
       action: ec2_facts
 
